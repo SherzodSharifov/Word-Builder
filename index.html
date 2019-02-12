@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Basic Web Page</title>
-    </head>
-    <body>
-Hello World!
-    </body>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Sherzod">
+<title>Word Builder</title>
+<style>
+  @font-face {
+    font-family: Informal Roman;
+    src: url(Informal Roman.woff) format("woff");
+  }
+  p {
+    color: salmon;
+    font-family: Informal Roman;
+    font-size: 3em;
+  }
+  body{padding: 5px; margin: 10px;}
+</style>
+<script>    
+  function WordBuilder(form) {
+    document.getElementById("output").innerHTML += ' ' +
+    form.elements["input"].value;
+    document.getElementById("output").value = " ";
+    form.reset();
+    form.elements["input"].focus();
+    var x = " ";
+  }
+</script>
+</head>
+
+<body>
+<noscript>Your browser does not support JavaScript!</noscript>
+<h1>Word Builder</h1>
+<form>
+  Starting word for your Word:
+  <input type="text" id="input" size="15" autofocus>
+  <br><br>
+  <input type="button" value="Add Word"
+    onclick = "WordBuilder(this.form) + blankSpace;">
+  <input type="reset" value="Start Over"
+    onclick = "window.location.reload()">
+</form>
+<p id="output"></p>
+</body>     
 </html>
